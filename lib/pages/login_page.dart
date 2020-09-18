@@ -1,22 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:needzaio/controllers/splash_controller.dart';
+import 'package:needzaio/controllers/login_controller.dart';
 
-class SplashPage extends StatelessWidget {
+class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder(
-      init: SplashController(),
+      init: LoginController(),
       builder: (widget) => Scaffold(
         body: Center(
           child: RaisedButton(
-            child: Text('Login'),
+            child: Text('SIGN IN'),
             onPressed: () {
-              if (widget.getStatus) {
-                widget.goLogin();
-              }
+              widget.goHome();
             },
-            color: widget.getStatus ? Colors.blue : Colors.grey,
+            color: Colors.blue,
           ),
         ),
       ),

@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:needzaio/pages/home_page.dart';
+import 'package:needzaio/pages/login_page.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class SplashController extends GetxController {
@@ -18,11 +18,11 @@ class SplashController extends GetxController {
     update();
   }
 
-  void goHome() {
+  void goLogin() {
     Get.to(
-      HomePage(),
-      transition: Transition.zoom,
-      duration: Duration(seconds: 1),
+      LoginPage(),
+      transition: Transition.rightToLeft,
+      duration: Duration(milliseconds: 500),
     );
   }
 }
