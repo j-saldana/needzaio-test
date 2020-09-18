@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:needzaio/constants.dart';
 import 'package:needzaio/pages/splash_page.dart';
 
 void main() {
@@ -14,6 +15,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Needzaio test',
       theme: ThemeData(
+        inputDecorationTheme: InputDecorationTheme(
+          enabledBorder: UnderlineInputBorder(
+            borderSide: BorderSide(color: kTextColor),
+          ),
+        ),
         brightness: Brightness.light,
         scaffoldBackgroundColor: Colors.white,
         primarySwatch: Colors.blue,

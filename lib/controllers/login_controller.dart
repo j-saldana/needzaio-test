@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:needzaio/pages/home_page.dart';
+import 'package:needzaio/pages/home/home_page.dart';
 import 'package:needzaio/pages/splash_page.dart';
 
 class LoginController extends GetxController {
@@ -14,7 +14,7 @@ class LoginController extends GetxController {
   void goHome() {
     Get.to(
       HomePage(),
-      transition: Transition.leftToRight,
+      transition: Transition.rightToLeft,
       duration: Duration(milliseconds: 500),
     );
   }

@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:needzaio/pages/login_page.dart';
+import 'package:needzaio/pages/login/login_page.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class SplashController extends GetxController {

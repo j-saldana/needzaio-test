@@ -1,31 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:needzaio/controllers/home_controller.dart';
+import 'package:needzaio/pages/home/components/body.dart';
+import 'package:needzaio/sizes.dart';
+
+import '../../constants.dart';
 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return GetBuilder<HomeController>(
       init: HomeController(),
       builder: (widget) => Scaffold(
+        extendBodyBehindAppBar: true,
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(80.0),
+          preferredSize: Size.fromHeight(getProportionateScreenHeight(80.0)),
           child: Padding(
-            padding: EdgeInsets.only(top: 10.0),
+            padding: EdgeInsets.only(top: kDefaultPadding),
             child: buildAppBar(widget),
           ),
         ),
-        body: Center(
-          child: Text(
-            widget.counter.toString(),
-          ),
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            widget.increment();
-          },
-          child: Icon(Icons.add),
-        ),
+        body: Body(),
       ),
     );
   }
@@ -35,7 +31,7 @@ class HomePage extends StatelessWidget {
       backgroundColor: Colors.transparent,
       elevation: 0,
       leading: Padding(
-        padding: EdgeInsets.only(left: 20.0),
+        padding: EdgeInsets.only(left: kDefaultPadding),
         child: IconButton(
           color: Colors.black,
           icon: Icon(Icons.home),
@@ -46,7 +42,7 @@ class HomePage extends StatelessWidget {
       ),
       actions: [
         Padding(
-          padding: EdgeInsets.only(right: 20.0),
+          padding: EdgeInsets.only(right: kDefaultPadding),
           child: IconButton(
             color: Colors.black,
             icon: Icon(Icons.message),
@@ -54,7 +50,7 @@ class HomePage extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(right: 20.0),
+          padding: EdgeInsets.only(right: kDefaultPadding),
           child: IconButton(
             color: Colors.black,
             icon: Icon(Icons.favorite_border),
@@ -62,7 +58,7 @@ class HomePage extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: EdgeInsets.only(right: 40.0),
+          padding: EdgeInsets.only(right: kDefaultPadding),
           child: IconButton(
             color: Colors.black,
             icon: Icon(Icons.person_outline),
