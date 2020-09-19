@@ -70,10 +70,8 @@ class Body extends StatelessWidget {
                     child: GestureDetector(
                       onTap: () {
                         if (!widget.getStatus) {
-                          Scaffold.of(context).showSnackBar(SnackBar(
-                            content: Text("Location disabled"),
-                            duration: Duration(milliseconds: 700),
-                          ));
+                          widget.error('Location disabled',
+                              'Please enable location to continue');
                         }
                         widget.goLogin();
                       },
