@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:needzaio/pages/home/home_page.dart';
-import 'package:needzaio/pages/splash_page.dart';
+import 'package:needzaio/pages/splash/splash_page.dart';
 
 class LoginController extends GetxController {
   void goSplash() {

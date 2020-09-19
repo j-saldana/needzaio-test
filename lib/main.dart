@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:needzaio/constants.dart';
-import 'package:needzaio/pages/splash_page.dart';
+import 'package:needzaio/pages/splash/splash_page.dart';
 
 void main() {
   runApp(MyApp());

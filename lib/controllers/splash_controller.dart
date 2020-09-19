@@ -19,10 +19,14 @@ class SplashController extends GetxController {
   }
 
   void goLogin() {
-    Get.to(
-      LoginPage(),
-      transition: Transition.rightToLeft,
-      duration: Duration(milliseconds: 500),
-    );
+    if (permissionStatus.isGranted) {
+      Get.to(
+        LoginPage(),
+        transition: Transition.rightToLeft,
+        duration: Duration(milliseconds: 500),
+      );
+    } else {
+      requestPermission();
+    }
   }
 }
