@@ -67,39 +67,37 @@ class Body extends StatelessWidget {
                       left: getProportionateScreenWidth(70),
                       right: getProportionateScreenWidth(70),
                     ),
-                    child: GestureDetector(
-                      onTap: () {
+                    child: RaisedButton(
+                      padding: EdgeInsets.symmetric(vertical: 10),
+                      color: widget.getStatus ? Colors.black : kTextColor,
+                      onPressed: () {
                         if (!widget.getStatus) {
                           widget.error('Location disabled',
                               'Please enable location to continue');
                         }
                         widget.goLogin();
                       },
-                      child: Container(
-                        padding: EdgeInsets.symmetric(
-                          vertical: getProportionateScreenWidth(
-                            kDefaultPadding - 10,
-                          ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(
+                          getProportionateScreenHeight(25),
                         ),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(
-                              getProportionateScreenHeight(25)),
-                          color: widget.getStatus ? Colors.black : kTextColor,
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Text(
-                              "GO TO LOGIN",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: getProportionateScreenWidth(17),
-                              ),
+                        side: BorderSide(
+                            color:
+                                widget.getStatus ? Colors.black : kTextColor),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            "GO TO LOGIN",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: getProportionateScreenWidth(17),
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
                   ),

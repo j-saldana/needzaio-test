@@ -32,7 +32,7 @@ class SplashController extends GetxController {
         ),
         child: Icon(
           Icons.error,
-          size: getProportionateScreenHeight(50),
+          size: getProportionateScreenHeight(40),
           color: kTextColor,
         ),
       ),

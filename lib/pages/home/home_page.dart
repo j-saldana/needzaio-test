@@ -13,59 +13,128 @@ class HomePage extends StatelessWidget {
     return GetBuilder<HomeController>(
       init: HomeController(),
       builder: (widget) => Scaffold(
-        extendBodyBehindAppBar: true,
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(getProportionateScreenHeight(80.0)),
+          preferredSize: Size.fromHeight(getProportionateScreenHeight(100.0)),
           child: Padding(
             padding: EdgeInsets.only(top: kDefaultPadding),
-            child: buildAppBar(widget),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(kDefaultPadding),
+              child: Container(
+                height: 200,
+                margin: const EdgeInsets.only(
+                  bottom: 10,
+                ),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(
+                    kDefaultPadding + 10,
+                  ),
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey,
+                      offset: Offset(0.0, 1.0), //(x,y)
+                      blurRadius: 6.0,
+                    ),
+                  ],
+                ),
+                child: Stack(
+                  alignment: Alignment.bottomCenter,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(
+                        left: getProportionateScreenWidth(
+                          30,
+                        ),
+                        bottom: getProportionateScreenWidth(
+                          15,
+                        ),
+                      ),
+                      child: Row(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              color: kPrimaryColor,
+                              borderRadius: BorderRadius.circular(
+                                kDefaultPadding + 10,
+                              ),
+                            ),
+                            width: 110,
+                            child: IconButton(
+                              color: Colors.black,
+                              icon: Icon(
+                                Icons.home,
+                                size: 35,
+                              ),
+                              onPressed: () {
+                                widget.goLogin();
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                        bottom: getProportionateScreenWidth(
+                          15,
+                        ),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.only(right: kDefaultPadding),
+                            child: IconButton(
+                              color: Colors.black,
+                              icon: Icon(
+                                Icons.message,
+                                size: 32,
+                              ),
+                              onPressed: () {
+                                widget.error('Messages',
+                                    'You are choose messages', false);
+                              },
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(right: kDefaultPadding),
+                            child: IconButton(
+                              color: Colors.black,
+                              icon: Icon(
+                                Icons.favorite_border,
+                                size: 33,
+                              ),
+                              onPressed: () {
+                                widget.error('Favorites',
+                                    'You are choose favorites', false);
+                              },
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(right: 30),
+                            child: IconButton(
+                              color: Colors.black,
+                              icon: Icon(
+                                Icons.person_outline,
+                                size: 35,
+                              ),
+                              onPressed: () {
+                                widget.error(
+                                    'Profile', 'You are choose profile', false);
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ),
         ),
         body: Body(),
       ),
-    );
-  }
-
-  AppBar buildAppBar(HomeController widget) {
-    return AppBar(
-      backgroundColor: Colors.transparent,
-      elevation: 0,
-      leading: Padding(
-        padding: EdgeInsets.only(left: kDefaultPadding),
-        child: IconButton(
-          color: Colors.black,
-          icon: Icon(Icons.home),
-          onPressed: () {
-            widget.goLogin();
-          },
-        ),
-      ),
-      actions: [
-        Padding(
-          padding: EdgeInsets.only(right: kDefaultPadding),
-          child: IconButton(
-            color: Colors.black,
-            icon: Icon(Icons.message),
-            onPressed: () {},
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.only(right: kDefaultPadding),
-          child: IconButton(
-            color: Colors.black,
-            icon: Icon(Icons.favorite_border),
-            onPressed: () {},
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.only(right: kDefaultPadding),
-          child: IconButton(
-            color: Colors.black,
-            icon: Icon(Icons.person_outline),
-            onPressed: () {},
-          ),
-        ),
-      ],
     );
   }
 }

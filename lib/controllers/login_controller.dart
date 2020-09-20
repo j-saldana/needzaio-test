@@ -10,14 +10,10 @@ import 'package:needzaio/sizes.dart';
 class LoginController extends GetxController {
   TextEditingController emailTextController;
   TextEditingController passwordTextController;
-  bool _validated = false;
 
-  bool get validated => _validated;
+  String _name = '';
 
-  void setValidate(bool value) {
-    this._validated = value;
-    update();
-  }
+  String get name => _name;
 
   @override
   void onInit() {
@@ -47,6 +43,9 @@ class LoginController extends GetxController {
     });
     request.post().then((response) {
       if (response.statusCode == 200) {
+        this._name = emailTextController.text.substring(0, 1).toUpperCase() +
+            emailTextController.text.substring(1);
+        update();
         goHome();
       } else {
         Get.back();
@@ -68,7 +67,7 @@ class LoginController extends GetxController {
         ),
         child: Icon(
           Icons.error,
-          size: getProportionateScreenHeight(50),
+          size: getProportionateScreenHeight(40),
           color: Colors.white,
         ),
       ),
