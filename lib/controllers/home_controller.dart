@@ -102,7 +102,7 @@ class HomeController extends GetxController {
   }
 
   void goLogin() {
-    Get.off(
+    Get.to(
       LoginPage(),
       transition: Transition.leftToRight,
       duration: Duration(milliseconds: 500),
