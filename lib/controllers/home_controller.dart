@@ -15,7 +15,6 @@ class HomeController extends GetxController {
   @override
   void onInit() {
     _apiGetUserList();
-    _apiGetUserList2();
     super.onInit();
   }
 
@@ -28,7 +27,8 @@ class HomeController extends GetxController {
     request.get().then((value) {
       UserListModel userListModel =
           UserListModel.fromJson(json.decode(value.body));
-      this.userListData.value = userListModel.data;
+      this.userListData.value += userListModel.data;
+      _apiGetUserList2();
     }).catchError((onError) {
       Get.back();
       error('Error', 'Timeout error on request', true);
