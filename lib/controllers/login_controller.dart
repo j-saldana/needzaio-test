@@ -106,7 +106,7 @@ class LoginController extends GetxController {
 
   void goSplash() {
     clearTexts();
-    Get.to(
+    Get.off(
       SplashPage(),
       transition: Transition.leftToRight,
       duration: Duration(milliseconds: 500),
@@ -115,7 +115,7 @@ class LoginController extends GetxController {
 
   void goHome() {
     clearTexts();
-    Get.to(
+    Get.off(
       HomePage(),
       transition: Transition.rightToLeft,
       duration: Duration(milliseconds: 500),
